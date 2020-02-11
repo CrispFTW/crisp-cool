@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+@import '../node_modules/fulcrum-css/dist/fulcrum.min.css';
+@import './assets/styles/icons/flaticon';
+@import url(https://fonts.googleapis.com/css?family=Dosis:300,400,500,600&display=swap);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import './assets/styles/meyer-reset';
+@import './assets/styles/omc-reset';
+@import './assets/styles/objects/objects';
+
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$mat-omcgreen: (
+    50 : #e8f4e9,
+    100 : #c7e3c8,
+    200 : #a1d0a3,
+    300 : #7bbd7e,
+    400 : #5fae63,
+    500 : #43a047,
+    600 : #3d9840,
+    700 : #348e37,
+    800 : #2c842f,
+    900 : #1e7320,
+    A100 : #b0ffb2,
+    A200 : #7dff80,
+    A400 : #4aff4e,
+    A700 : #30ff35,
+    contrast: (
+        50 : #1e7320,
+        100 : #1e7320,
+        200 : #1e7320,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #1e7320,
+        A200 : #1e7320,
+        A400 : #1e7320,
+        A700 : #1e7320,
+    )
+);
+$OffMarket-primary: mat-palette($mat-omcgreen);
+$OffMarket-accent: mat-palette($mat-omcgreen, A200, A400, A700);
+
+// The warn palette is optional (defaults to red).
+$OffMarket-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$OffMarket-theme: mat-light-theme($OffMarket-primary, $OffMarket-accent, $OffMarket-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($OffMarket-theme);
+
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Dosis|Roboto&display=swap');
+html, body { height: 100%; }
+body { margin: auto; font-family: Roboto, "Helvetica Neue", sans-serif; }
