@@ -1,0 +1,28 @@
+<div class="deals o-page-inner">
+  <div class="o-page-heading">
+    <h1 class="deals__heading o-page-title">Off Market Deals</h1>
+    <mat-slide-toggle
+      class="deals__view-toggle"
+      (change)="logDeals()"
+      #listToggle
+      [checked]="true"
+    >List View</mat-slide-toggle>
+  </div>
+  <div
+    *ngIf="!listToggle.checked"
+    class="deals-item-row"
+  >
+    <deal-card
+      class="deals-item-row__item"
+      *ngFor="let deal of deals"
+      [deal]="deal"
+      (click)="logDeal(deal.path)"
+    ></deal-card>
+  </div>
+  <div
+    *ngIf="listToggle.checked"
+    class="deals-list"
+  >
+    <deal-list [dataSource]="deals"></deal-list>
+  </div>
+</div>

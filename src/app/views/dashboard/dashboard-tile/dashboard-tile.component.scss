@@ -1,0 +1,31 @@
+.dashboard-tile {
+  cursor: pointer;
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 18rem;
+  min-width: 250px;
+  border-radius: 4px;
+  background: var(--brandPrimary);
+  color: var(--white);
+  &__top {
+    display: inherit;
+    flex: 1 1 60%;
+    justify-content: center;
+  }
+  &__icon {
+    align-self: center;
+    font-size: 6rem;
+  }
+  &__heading {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 40%;
+    font-size: 1.8rem;
+    font-weight: var(--weightSemiBold);
+  }
+  &:hover {
+    box-shadow: 2px 2px 5px rgba(85, 85, 85, 0.5);
+    transform: scale(1.0101);
+  }
+}

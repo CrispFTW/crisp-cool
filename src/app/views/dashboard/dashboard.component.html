@@ -1,0 +1,9 @@
+<div class="dashboard o-page-inner">
+  <div class="dashboard__tiles">
+    <dashboard-tile
+      *ngFor="let tile of tiles"
+      [tile]="tile"
+      [routerLink]="tile?.link"
+    ></dashboard-tile>
+  </div>
+</div>

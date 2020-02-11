@@ -1,0 +1,9 @@
+.create-deal {
+  display: flex;
+  flex-flow: column nowrap;
+  &__heading {
+    text-align: center;
+    font-size: 5rem;
+    font-weight: var(--weightRegular);
+  }
+}

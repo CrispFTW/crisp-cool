@@ -1,0 +1,8 @@
+.dashboard {
+  &__tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+    justify-content: center;
+    grid-gap: 30px;
+  }
+}

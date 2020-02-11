@@ -1,0 +1,31 @@
+<div class="review o-page-inner">
+  <section class="o-page-heading">
+    <h1 class="review__heading o-page-title">Review Deals</h1>
+    <mat-slide-toggle
+      class="review__view-toggle"
+      [checked]="true"
+      #listToggle
+    >List View</mat-slide-toggle>
+  </section>
+  <section
+    *ngIf="!listToggle.checked"
+    class="review-item-row"
+  >
+    <deal-card
+      class="review-item-row__item"
+      *ngFor="let deal of deals"
+      [deal]="deal"
+      (click)="logDeal(deal.path)"
+    ></deal-card>
+  </section>
+  <section
+    *ngIf="listToggle.checked"
+    class="review-list"
+  >
+    <deal-list
+      [dataSource]="deals"
+      [displayedColumns]="['address', 'status']"
+      (sortDealsBy)="getDealsBy($event)"
+    ></deal-list>
+  </section>
+</div>

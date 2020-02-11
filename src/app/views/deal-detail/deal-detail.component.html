@@ -1,0 +1,9 @@
+<div
+  class="deal-detail o-page-inner"
+  *ngIf="dealDetail | async as deal"
+>
+  <deal-composer
+    [deal]="deal"
+    [readOnly]="true"
+  ></deal-composer>
+</div>

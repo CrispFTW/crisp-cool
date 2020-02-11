@@ -1,0 +1,100 @@
+<section class="questionaire o-page-inner">
+  <form
+    [formGroup]="questionaireForm"
+    class="questionaire__form"
+  >
+    {{ questionaireForm.value | json }}
+    <div class="u-row questionaire__input-group">
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>What types of property are you interested in</mat-label>
+          <mat-select
+            formControlName="interestedIn"
+            multiple
+          >
+            <mat-option value="one">One</mat-option>
+            <mat-option value="two">Two</mat-option>
+            <mat-option value="three">Three</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="u-row questionaire__input-group">
+      <div class="u-row__column">
+        <mat-radio-group
+          aria-label="Do you own investment properties?"
+          formControlName="investmentProperties"
+        >
+          <div class="u-margin-bottom-10">
+            <mat-label>Do you own investment properties?</mat-label>
+          </div>
+          <mat-radio-button value="yes">Yes</mat-radio-button>
+          <mat-radio-button
+            class="u-margin-left-small"
+            value="no"
+          >No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="u-row questionaire__input-group">
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>Over the next year how many investment properties do you plan on purchasing?</mat-label>
+          <input
+            formControlName="unitGoal"
+            type="number"
+            matInput
+          >
+          <mat-error>Please enter a value (only digits)</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="u-row questionaire__input-group">
+      <div class="u-row__column">
+        <mat-radio-group
+          aria-label="Do you use a property management company?"
+          formControlName="propertyManagement"
+        >
+          <div class="u-margin-bottom-10">
+            <mat-label>Do you use a property management company?</mat-label>
+          </div>
+          <mat-radio-button value="yes">Yes</mat-radio-button>
+          <mat-radio-button
+            class="u-margin-left-small"
+            value="no"
+          >No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="u-row questionaire__input-group">
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>How do you fund your aquisitions?</mat-label>
+          <mat-select
+            formControlName="funding"
+            multiple
+          >
+            <mat-option value="one">One</mat-option>
+            <mat-option value="two">Two</mat-option>
+            <mat-option value="three">Three</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="u-row questionaire__input-group">
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>What are your closing requirements?</mat-label>
+          <mat-select
+            formControlName="closingRequirements"
+            multiple
+          >
+            <mat-option value="one">One</mat-option>
+            <mat-option value="two">Two</mat-option>
+            <mat-option value="three">Three</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</section>

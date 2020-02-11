@@ -1,0 +1,10 @@
+.questionaire {
+  display: flex;
+  justify-content: center;
+  &__form {
+    width: 40%;
+  }
+  &__input-group {
+    margin-bottom: 3rem;
+  }
+}

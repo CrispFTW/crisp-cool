@@ -1,0 +1,164 @@
+<div class="login o-page-inner">
+  <div class="login__inner u-elevation-2">
+    <h1 class="login__heading u-margin-bottom-small">
+      Welcome to Off Market Cleveland!
+    </h1>
+    <h2 class="login__subheading">
+      {{ showLoginForm ? 'Login' : 'Register' }}
+    </h2>
+    <form
+      [formGroup]="userForm"
+      class="login__form u-margin-top-medium"
+      autocomplete="off"
+    >
+      <ng-container
+        *ngIf="!showLoginForm"
+        formGroupName="registerForm"
+      >
+        <div class="u-row u-margin-bottom-small">
+          <div class="u-row__column">
+            <mat-form-field>
+              <mat-label>First Name</mat-label>
+              <input
+                matInput
+                type="text"
+                name="firstName"
+                formControlName="firstName"
+                id="firstName"
+              >
+              <mat-error>Please enter your first name</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="u-row u-margin-bottom-small">
+          <div class="u-row__column">
+            <mat-form-field>
+              <mat-label>Last Name</mat-label>
+              <input
+                matInput
+                type="text"
+                name="lastName"
+                formControlName="lastName"
+                id="lastName"
+              >
+              <mat-error>Please enter your last name</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="u-row u-margin-bottom-small">
+          <div class="u-row__column">
+            <mat-form-field>
+              <mat-label>Phone #</mat-label>
+              <input
+                matInput
+                type="text"
+                name="firstName"
+                placeholder="2125551234"
+                formControlName="phone"
+                id="phone"
+              >
+              <mat-error>Please enter a valid phone number</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container formGroupName="loginForm">
+        <div class="u-row u-margin-bottom-small">
+          <div class="u-row__column">
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                type="text"
+                name="email"
+                formControlName="email"
+                id="email"
+              >
+              <mat-error>Please enter a valid email</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="u-row">
+          <div class="u-row__column">
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                type="password"
+                name="password"
+                formControlName="password"
+                id="password"
+              >
+              <mat-hint>
+                Password must be between 12 and 20 characters
+              </mat-hint>
+              <mat-error>Please enter a valid password</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </ng-container>
+    </form>
+    <div class="u-row u-margin-bottom-small">
+      <p
+        *ngIf="wrongPasswordEntered"
+        class="login__general-error"
+      >
+        The password entered does not match our records. Please check your password and try again. If you have forgotten
+        your password please
+        <a
+          role="button"
+          class="login__error-link"
+          (click)="resetPassword()"
+        >reset your password</a>
+      </p>
+      <p
+        *ngIf="emailNotOnFile"
+        class="login__general-error"
+      >
+        The email you entered does not match any of our records. Please check your email and retry. If you do not have
+        an account with us please
+        <a
+          role="button"
+          (click)="toggleFormType()"
+          class="login__error-link"
+        >register</a>
+        first
+      </p>
+      <p
+        *ngIf="tooManyAttempts"
+        class="login__general-error"
+      >
+        You have entered the wrong information too many times. Please try again sortly.
+      </p>
+      <p
+        *ngIf="unknownLoginError"
+        class="login__general-error"
+      >
+        Oops! An error has occurred while trying to log you in. Please try again sortly.
+      </p>
+    </div>
+    <div class="u-row u-margin-bottom-small">
+      <div class="u-row__column">
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="!isFormCompleted()"
+          (click)="showLoginForm ? logUserIn() : registerNewUser()"
+        >
+          {{ showLoginForm ? 'Login' : 'Register' }}
+        </button>
+      </div>
+    </div>
+    <div class="u-row">
+      <div class="u-row__column">
+        <button
+          mat-button
+          color="accent"
+          (click)="toggleFormType()"
+        >
+          {{ showLoginForm ? 'Sign up' : 'Log In' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
