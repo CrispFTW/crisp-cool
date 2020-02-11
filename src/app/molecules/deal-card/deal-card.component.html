@@ -1,0 +1,52 @@
+<div class="deal-card__top">
+  <img
+    [src]="(primaryPhoto | async)?.src"
+    alt="primary photo"
+    class="deal-card__image"
+  >
+  <span class="deal-card__ribbon u-elevation-2">
+    {{ deal?.offMarketAsk | stripSpecialChars | currency:'USD':'symbol':'1.0-0' }}
+  </span>
+</div>
+<div class="deal-info">
+  <div class="deal-info__address">
+    <p class="deal-info__cell m--full-width">
+      {{ deal?.address?.split(',').shift() }}
+    </p>
+    <p class="deal-info__cell m--full-width">
+      {{ deal?.address?.split(',').slice(1) }}
+    </p>
+  </div>
+  <div class="deal-info__itemized">
+    <!-- <p class="deal-info__cell">
+      <strong>Baths</strong>: {{ deal?.baths }}
+    </p> -->
+    <!-- <p class="deal-info__cell">
+      <strong>Market Rent</strong>: {{ deal?.marketRent | stripSpecialChars | currency }}
+    </p> -->
+    <!-- <p class="deal-info__cell">
+      <strong>Off Market Ask</strong>: {{ deal?.offMarketAsk | stripSpecialChars | currency:'USD':'symbol':'1.0-0' }}
+    </p> -->
+    <!-- <p class="deal-info__cell">
+      <strong>Bedrooms</strong>: {{ deal?.bedrooms }}
+    </p> -->
+    <p class="deal-info__cell m--bold">
+      Property Type: {{ deal?.propertyType }}
+    </p>
+    <!-- <p class="deal-info__cell">
+      <strong>Yearly Taxes</strong>: {{ deal?.yearlyTaxes | stripSpecialChars | currency }}
+    </p> -->
+    <!-- <p class="deal-info__cell">
+      <strong>Building Sq. Ft.</strong>: {{ deal?.buildingSqFt }}
+    </p> -->
+    <!-- <p class="deal-info__cell">
+      <strong>Lot Sq. Ft.</strong>: {{ deal?.lotSqFt }}
+    </p> -->
+    <!-- <p class="deal-info__cell">
+      <strong>Occupied Units</strong>: {{ deal?.occupiedUnits }}
+    </p> -->
+  </div>
+  <p class="deal-info__cell deal-info__details">
+    {{ deal?.details?.slice(0, 140) }}...
+  </p>
+</div>

@@ -1,0 +1,74 @@
+<table
+  class="deal-list"
+  mat-table
+  [dataSource]="dataSource"
+>
+  <ng-container matColumnDef="address">
+    <th
+      class="deal-list__cell m--header"
+      mat-header-cell
+      *matHeaderCellDef
+    >Address</th>
+    <td
+      class="deal-list__cell"
+      mat-cell
+      *matCellDef="let row"
+    >{{ row.address }}</td>
+  </ng-container>
+  <ng-container matColumnDef="status">
+    <th
+      class="deal-list__cell m--header m--end"
+      mat-header-cell
+      *matHeaderCellDef
+    >
+      Status:
+      <span class="deal-list__status-select">
+        <mat-form-field>
+          <mat-select
+            value="submitted"
+            #viewableDeals
+            (valueChange)="changeViewableDeals(viewableDeals.value)"
+          >
+            <mat-option
+              *ngFor="let option of sortOptions"
+              [value]="option.value"
+            >{{ option.viewValue }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </span>
+    </th>
+    <td
+      class="deal-list__cell m--end"
+      mat-cell
+      *matCellDef="let row"
+    >{{ row.status }}</td>
+  </ng-container>
+  <ng-container matColumnDef="offMarketAsk">
+    <th
+      class="deal-list__cell m--header m--end"
+      mat-header-cell
+      *matHeaderCellDef
+    >Off Market Ask</th>
+    <td
+      class="deal-list__cell m--end"
+      mat-cell
+      *matCellDef="let row"
+    >
+      {{
+        row.offMarketAsk
+          ? (row.offMarketAsk | stripSpecialChars | currency:'USD':'symbol':'1.0-0')
+          : 'Call for details'
+      }}
+    </td>
+  </ng-container>
+  <tr
+    mat-header-row
+    *matHeaderRowDef="displayedColumns"
+  ></tr>
+  <tr
+    class="deal-list__row"
+    mat-row
+    *matRowDef="let row; columns: displayedColumns;"
+    (click)="goToDealDetail(row.path)"
+  ></tr>
+</table>

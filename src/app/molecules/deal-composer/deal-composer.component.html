@@ -1,0 +1,207 @@
+<section class="composer u-margin-top-medium">
+  <div class="composer__start">
+    <img
+      class="composer__image"
+      [src]="primaryImage || 'https://placeimg.com/640/480/any'"
+      alt="placeholder image"
+    >
+  </div>
+  <form
+    [formGroup]="dealComposerForm"
+    class="composer__end u-padding-left-small"
+    [ngClass]="{ 'm--readonly' : readOnly }"
+  >
+    <div class="u-row">
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input
+            matInput
+            [readonly]="readOnly"
+            type="text"
+            name="address"
+            id="address"
+            formControlName="address"
+          >
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="u-row u-margin-top-small">
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>Property Type</mat-label>
+          <input
+            matInput
+            [readonly]="readOnly"
+            type="text"
+            name="propertyType"
+            id="propertyType"
+            formControlName="propertyType"
+          >
+        </mat-form-field>
+      </div>
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>Bedrooms</mat-label>
+          <input
+            matInput
+            [readonly]="readOnly"
+            type="number"
+            name="bedrooms"
+            id="bedrooms"
+            formControlName="bedrooms"
+          >
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="u-row u-margin-top-small">
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>Market Rent</mat-label>
+          <input
+            matInput
+            [readonly]="readOnly"
+            type="number"
+            name="marketRent"
+            id="marketRent"
+            formControlName="marketRent"
+          >
+        </mat-form-field>
+      </div>
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>Baths</mat-label>
+          <input
+            matInput
+            [readonly]="readOnly"
+            type="number"
+            name="baths"
+            id="baths"
+            formControlName="baths"
+          >
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="u-row u-margin-top-small">
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>Building Sq. Ft.</mat-label>
+          <input
+            matInput
+            [readonly]="readOnly"
+            type="number"
+            name="buildingSqFt"
+            id="buildingSqFt"
+            formControlName="buildingSqFt"
+          >
+        </mat-form-field>
+      </div>
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>Lot Sq. Ft.</mat-label>
+          <input
+            matInput
+            [readonly]="readOnly"
+            type="number"
+            name="lotSqFt"
+            id="lotSqFt"
+            formControlName="lotSqFt"
+          >
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="u-row u-margin-top-small">
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>Occupied Units</mat-label>
+          <input
+            matInput
+            [readonly]="readOnly"
+            type="number"
+            name="occupiedUnits"
+            id="occupiedUnits"
+            formControlName="occupiedUnits"
+          >
+        </mat-form-field>
+      </div>
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>Total Units</mat-label>
+          <input
+            matInput
+            [readonly]="readOnly"
+            type="number"
+            name="totalUnits"
+            id="totalUnits"
+            formControlName="totalUnits"
+          >
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="u-row u-margin-top-small">
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>Year Built</mat-label>
+          <input
+            matInput
+            [readonly]="readOnly"
+            type="number"
+            name="yearBuilt"
+            id="yearBuilt"
+            formControlName="yearBuilt"
+          >
+        </mat-form-field>
+      </div>
+      <div class="u-row__column">
+        <mat-form-field>
+          <mat-label>Yearly Taxes</mat-label>
+          <input
+            matInput
+            [readonly]="readOnly"
+            type="number"
+            name="yearlyTaxes"
+            id="yearlyTaxes"
+            formControlName="yearlyTaxes"
+          >
+        </mat-form-field>
+      </div>
+    </div>
+    <div
+      *ngIf="!readOnly"
+      class="u-row u-margin-top-small"
+    >
+      <div class="u-row__column u-justify-content-end">
+        <input
+          #photosInput
+          class="u-visually-hidden"
+          type="file"
+          name="photos"
+          id="photos"
+          multiple
+          accept="image/*"
+          (change)="updateImageDisplay($event)"
+        >
+        <input
+          #docsInput
+          class="u-visually-hidden"
+          type="file"
+          name="documents"
+          id="documents"
+          formControlName="documents"
+          multiple
+          accept=".doc, .docx"
+        >
+        <button
+          (click)="photosInput.click()"
+          mat-button
+          type="button"
+        >+ Photos</button>
+        <button
+          (click)="docsInput.click()"
+          mat-button
+          type="button"
+        >+ Attach</button>
+      </div>
+    </div>
+  </form>
+</section>

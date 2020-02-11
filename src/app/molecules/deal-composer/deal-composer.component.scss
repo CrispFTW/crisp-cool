@@ -1,0 +1,21 @@
+:host {
+  width: 85%;
+  align-self: center;
+}
+
+.composer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  max-width: 1300px;
+  &__start,
+  &__end {
+    flex: 0 0 50%;
+  }
+  &__image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}

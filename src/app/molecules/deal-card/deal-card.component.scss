@@ -1,0 +1,85 @@
+:host {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.35);
+  max-width: 35rem;
+  min-width: 35rem;
+  // overflow: hidden;
+}
+
+.deal {
+  &-card {
+    &__top {
+      max-height: 25rem;
+      min-height: 25rem;
+      flex: 0 0 50%;
+    }
+    &__ribbon {
+      position: absolute;
+      display: block;
+      top: 1.5rem;
+      right: -0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--brandPrimary);
+      color: var(--white);
+      font-size: 2rem;
+      font-weight: var(--weightBlack);
+      letter-spacing: 0.1rem;
+      z-index: 3;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -1.5rem;
+        border: 1.5rem solid var(--brandPrimary);
+        border-left-color: transparent;
+        z-index: -1;
+      }
+    }
+    &__image {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &-info {
+    display: flex;
+    flex: 1 1 auto;
+    flex-flow: column nowrap;
+    padding: 0 2rem;
+    overflow: hidden;
+    &__address {
+      flex: 0 1 auto;
+      font-size: 1.8rem;
+      font-weight: var(--weightSemiBold);
+      letter-spacing: 0.1rem;
+      .deal-info__cell {
+        margin: 0;
+      }
+    }
+    &__itemized {
+      display: flex;
+      flex-flow: row wrap;
+    }
+    &__cell {
+      flex: 0 0 50%;
+      margin: 0.5rem 0;
+      &.m {
+        &--bold {
+          font-weight: var(--weightSemiBold);
+        }
+      }
+    }
+    &__details {
+      flex: 0 1 auto;
+      font-size: 1.4rem;
+      height: 10rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
